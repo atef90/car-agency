@@ -1,0 +1,121 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <!-- build:css({.tmp,app}) styles/app.min.css -->
+    <link rel="stylesheet" href="{{ asset('admin/styles/webfont.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/styles/climacons-font.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/vendor/bootstrap/dist/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/styles/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/styles/card.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/styles/sli.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/styles/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/styles/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/styles/app.skins.css') }}">
+    <!-- endbuild -->
+</head>
+
+<body class="page-loading">
+<!-- page loading spinner -->
+<div class="pageload">
+    <div class="pageload-inner">
+        <div class="sk-rotating-plane"></div>
+    </div>
+</div>
+<!-- /page loading spinner -->
+<div class="app signin usersession">
+    <div class="session-wrapper">
+        <div class="page-height-o row-equal align-middle">
+            <div class="column">
+                <div class="card bg-white no-border">
+                    <div class="card-block">
+
+                        {% if error %}
+                            <div class="alert alert-danger">
+                                The email address or password you entered is incorrect.
+                            </div>
+                        {% endif %}
+                        <form role="form" class="form-layout" action="{{ path("admin_login_check") }}" method="post">
+
+                            {% if csrf_token %}
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            {% endif %}
+
+                            <div class="text-center m-b">
+                                <h4 class="text-uppercase">Welcome back</h4>
+                                <p>Please sign in to your account</p>
+                            </div>
+
+                            <div class="form-inputs">
+                                <label class="text-uppercase" for="username">Your username</label>
+                                <input type="text" class="form-control input-lg" placeholder="Username" name="_username" value="{{ last_username }}" required="required" >
+                                <label class="text-uppercase" for="password">Password</label>
+                                <input id="password" type="password" name="_password" class="form-control input-lg" placeholder="Password" required>
+                            </div>
+
+                            <button class="btn btn-primary btn-block btn-lg m-b" type="submit">Login</button>
+                            <div class="divider">
+                                <span>OR</span>
+                            </div>
+                            <p class="text-center">
+                                <small>
+                                    <em>By clicking Log in you agree to our <a href="#">terms and conditions</a></em>
+                                </small>
+                            </p>
+                        </form>
+                    </div>
+                    <a href="#" class="bottom-link">Forgotten password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- bottom footer -->
+    <footer class="session-footer">
+        <nav class="footer-right">
+            <ul class="nav">
+                <li>
+                    <a href="javascript:;">Feedback</a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="scroll-up">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="footer-left hidden-xs">
+            <ul class="nav">
+                <li>
+                    <a href="javascript:;"><span>About</span> Reactor</a>
+                </li>
+                <li>
+                    <a href="javascript:;">Privacy</a>
+                </li>
+                <li>
+                    <a href="javascript:;">Terms</a>
+                </li>
+                <li>
+                    <a href="javascript:;">Help</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    <!-- /bottom footer -->
+</div>
+<!-- build:js({.tmp,app}) scripts/app.min.js -->
+<script src="{{ asset('admin/scripts/helpers/modernizr.js') }}"></script>
+<script src="{{ asset('admin/vendor/jquery/dist/jquery.js') }}"></script>
+<script src="{{ asset('admin/vendor/bootstrap/dist/js/bootstrap.js') }}"></script>
+<script src="{{ asset('admin/vendor/fastclick/lib/fastclick.js') }}"></script>
+<script src="{{ asset('admin/vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.js') }}"></script>
+<script src="{{ asset('admin/scripts/helpers/smartresize.js') }}"></script>
+<script src="{{ asset('admin/scripts/constants.js') }}"></script>
+<script src="{{ asset('admin/scripts/main.js') }}"></script>
+<!-- endbuild -->
+</body>
+
+</html>

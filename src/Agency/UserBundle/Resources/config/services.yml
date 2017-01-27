@@ -1,0 +1,5 @@
+services:
+    app.security.authentication_handler:
+        class : Agency\UserBundle\Handler\AuthenticationHandler
+        public : false
+        arguments: ['@router', '@session' ]
